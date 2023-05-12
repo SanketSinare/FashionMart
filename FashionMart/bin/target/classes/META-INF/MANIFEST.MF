@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: Chitta
+Build-Jdk: 16.0.1
+Implementation-Title: shopping
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.springboot
+Implementation-URL: https://spring.io/projects/spring-boot/shopping
+Created-By: Maven Integration for Eclipse
+
