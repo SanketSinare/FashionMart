@@ -1,0 +1,62 @@
+<app-navigation></app-navigation>
+ <div class="slider_bg_box">
+  <img src="https://tse1.mm.bing.net/th?id=OIP.wWqyGP5_TyAW5UwmELVjagHaE7&pid=Api&P=0"  alt="">
+</div> 
+<section class="product_section layout_padding">
+  <div class="container"> 
+     <div class="heading_container shadow heading_center text-center ">
+        <h2>
+           Buy Men, Women and Kids Accessories 
+        </h2>
+     </div>
+     <div class="row">
+  <div class="container">
+  <br>
+  <div class="row mt-3">
+    <div class="col-4 main">
+      <div class="form-group has-search">
+      <span class="fa fa-search form-control-feedback"></span>
+      <input type ="search" type="text" class="form-control " placeholder="Search" (input)="searchByName($event.target.value)" />
+    </div>
+  </div>
+    <div class="col-4">
+    <select class="custom-select " (change)="onChangeCategory($event.target.value)" >
+      <option selected disabled>category</option>
+      <option value="All">All</option> 
+      <option value="men">MEN</option>
+      <option value="women">WOMEN</option>
+      <option value="kids">KIDS</option>
+      <option value="Jwellary">Jwellary</option>
+      <option value="watch">Watch</option>
+      <option value="shoes">Shoes and Sandals</option>
+      <option value="hat">Perfume and Makeup Products</option>
+    </select>
+  </div>
+  <div class="col-4">
+    <div class="slider" >
+      <div class="progress" [ngStyle]="{'left': left, 'right': right}"></div>
+    </div>
+    <div class="range-input ">
+      <input type="range" class="range-min" min="0" max="10000" id="min" value="2500" step="100" (input)="searchByMinAmount($event.target.value)">
+      <input type="range" class="range-max" min="0" max="10000" id="max" value="7500" step="100" (input)="searchByMaxAmount($event.target.value)" >
+      <div class="row mr-auto">
+        <div class="col-6">
+          <label>Min: {{minAmount}}</label>
+        </div>
+        <div class="col-6 ">
+          <label class="">Max: {{maxAmount}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <br><br><br>
+  <div class="row">
+    <div class="col-4 align-left" *ngFor="let product of products">
+      <app-product [product]="product" (productAddToCart)="addToCart($event)">Loading...</app-product>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</section>

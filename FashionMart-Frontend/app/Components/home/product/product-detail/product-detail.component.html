@@ -1,0 +1,42 @@
+<app-navigation></app-navigation>
+
+<div class="container">
+    
+  <div class="col-lg-8 border p-3 main-section bg-white">
+    
+    <div class="hedding pb-0 shadow">
+       
+      <h1 class="pl-5">{{products?.productname}}</h1>
+  </div>
+  <div class="row m-0 shadow ">
+      <div class="col-lg-4 left-side-product-box mt-2 pb-3">
+        <img src="data:image/png;base64,{{products?.productimage}}" class="img-responsive" height="300px" width="250px"  alt="Image">
+      </div>
+  <div class="col-lg-8 mt-2 ">
+  <div class="right-side-pro-detail border p-3 m-0">
+      <div class="row">
+          <div class="col-lg-12 ">
+              <span> {{products?.productname}} </span>
+              <p class="m-0 p-0">{{products?.category}}  </p>
+          </div>
+          <div class="col-lg-12">
+              <p class="m-0 p-0 price-pro">{{products?.price}}</p>
+              <hr class="p-0 m-0">
+          </div>
+          <div class="col-lg-12 pt-2">
+              <h5>Product Detail</h5>
+              <span>{{products?.description}}</span>
+              <hr class="m-0 pt-2 mt-2">
+          </div>
+          <div class="col-lg-12 mt-3">
+              <div class="row">
+                  <div class="col-lg-6 pb-2">
+                      <a href="#" (click)="addToCart()" class="btn w-100">Add To Cart</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+  </div>
+</div>

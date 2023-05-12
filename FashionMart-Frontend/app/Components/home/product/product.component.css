@@ -1,0 +1,19 @@
+.card-title{
+  color: rgb(44, 45, 46);
+}
+.img-box{
+  margin-top: 5px;
+
+}
+.box1{
+  box-shadow: 2px 14px 2px 14px black ;
+  text-align: center ;
+  overflow: hidden ;
+  background-color: white ;
+  border-radius: 10px ;
+  padding-right: 10px;
+}
+.option1, .option2{
+   margin: 0px 30px;
+   font-weight: 500;
+}

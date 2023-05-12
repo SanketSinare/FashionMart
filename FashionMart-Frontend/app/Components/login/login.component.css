@@ -1,0 +1,21 @@
+.row{
+    margin-top: 40px;
+    margin-left: 310px;
+    width: 700px;
+}
+
+.card-body{
+    background-color: rgb(234, 230, 223);
+    border: 5px solid rgb(40, 37, 37);
+    width: 680px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px 150px;
+}
+.btn{
+    background-color: rgb(225, 221, 215);
+    color: rgb(26, 24, 25);
+    width: 150px;
+    margin-top: 20px;
+    border: 1px solid rgb(78, 74, 74);
+}

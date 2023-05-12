@@ -1,0 +1,18 @@
+.card-text{
+    height: 50px;
+    overflow: hidden;
+  }
+.mybtn{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.mybtnclr{
+    margin-left:10px;
+}
+.card{
+    border: 4px solid rgb(251, 148, 167);
+    align-items: center;
+}
+.card-body{
+    background-color: rgb(251, 250, 252);
+}

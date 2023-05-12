@@ -1,0 +1,19 @@
+<div class="box1  shadow" style="max-height: 540px;" >
+   <h4 class="card-title">{{product.productname}}</h4>
+      <a (click)="ViewProductDetail(product.productid)" class="option1" style="color: rgb(251, 84, 112);text-decoration: underline;"> View Product
+   </a>
+     <a class="option2" style="cursor: pointer; color:rgb(49, 45, 46); text-decoration: underline;" (click)="addToCart()"> Add to cart  </a>
+<div class="img-box">
+   <img src="data:image/png;base64,{{product.productimage}}" height="360px"  alt="Image">
+</div>
+<div class="detail-box">
+  <h5> {{product.category}} </h5>
+  <div>
+     <h6> <s style="color: rgba(255, 0, 0, 0.397)"> ₹{{ product.price * 10/9 | number:'1.0-0' }}</s> </h6> 
+        <h6> ₹ {{product.price}}  </h6> 
+  </div>
+</div>
+{{product.description}}
+</div>
+<div class="btn-box"></div>       
+<br>

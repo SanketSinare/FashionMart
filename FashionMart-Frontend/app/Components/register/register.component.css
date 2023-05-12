@@ -1,0 +1,25 @@
+.invalid-input {
+  color: red;
+}
+.card-body{
+  background-color: rgb(234, 230, 223);
+  border: 5px solid rgb(40, 37, 37);
+  width: 700px;
+  border-radius: 10px;
+  padding-left: 150px;
+  margin-left: 20px;
+}
+.btn{
+  background-color: rgb(225, 221, 215);
+  border-color: rgb(47, 43, 43);
+  color: rgb(26, 24, 25);
+  width: 150px;
+  margin-left: 105px;
+}
+.btn:hover{
+  border-color: 6px solid rgb(99, 96, 96);
+}
+.card-body h1{
+  margin-bottom: 30px;
+  margin-left: 30px;
+}

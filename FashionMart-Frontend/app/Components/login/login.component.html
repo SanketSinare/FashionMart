@@ -1,0 +1,36 @@
+<app-navigation></app-navigation>
+      
+     <div class="row mt-5">
+       <div class="col-lg-8 offset-lg-2">
+            <div class="card-body mt-2 ml-auto mr-auto ">
+
+                <h1 class="ml-auto mb-5">User Login</h1>
+                <p *ngIf="errorMessage!=null" style="color:red;">{{errorMessage}}</p> 
+                      <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+                        <div *ngIf="error">Content to render when condition is true.</div>
+                            <input class="form-control" formControlName="username" placeholder="Username" style="width:100%" required maxlength="10" minlength="3">
+                            <span *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)" >
+                                <span *ngIf="loginForm.controls['username'].errors.required" style="color:red;">
+                                Name is required.
+                            </span>              
+                                 <span *ngIf="loginForm.controls['username'].errors.minlength" style="color:red;">
+                                    Username must be atleast 3 characters long
+                                </span>   
+                            </span>
+                        <br>
+                        <div class="form-group">
+                            <input type="password" class="form-control" formControlName="password" placeholder="Password" style="width:100%" required minlength="3">
+                            <span *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" >
+                                <span *ngIf="loginForm.controls['password'].errors.required" style="color:red;">
+                                    Password is required.
+                                </span>
+                            </span>
+                        </div>
+                        
+                        <input type="submit"  class="btn  align-right" value="Login">
+                            </form>  
+                </div>
+            </div>
+    </div>
+<br>
+<br>

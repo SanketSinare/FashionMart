@@ -1,0 +1,84 @@
+<div>
+  <div class="container">
+     <nav class="navbar  navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="#"><img width="250" src="../../../assets/img/logo2.jpeg" alt="#" /></a>
+        
+         <h1><span style="color:rgb(251, 148, 167);font-size: 45px;">F</span>ashion<span style="color:rgb(251, 148, 167);font-size: 45px;">M</span>art</h1>
+        <div class="collapse navbar-collapse"  id="navbarTogglerDemo01" [ngSwitch]="loggedType">
+           <div *ngSwitchCase="'home'">
+             <ul class="navbar-nav mt-2  mt-lg-0">
+               <li class="nav-item reg">
+                 <a class=" nav-link" routerLink="/register">Register</a>
+               </li>
+               <li class="nav-item ml-3">
+                 <a class=" nav-link" routerLink="/login">Login</a>
+               </li>
+             </ul>
+           </div>
+           <div class="ml-auto" *ngSwitchCase="'customer'">
+             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+               <li class="nav-item">
+                 <a class=" nav-link" routerLink="/home">Home</a>
+               </li>
+               <li class="nav-item">
+                 <a class=" nav-link" routerLink="/home/address">Address</a>
+               </li>
+               <li class="nav-item">
+                 <a class=" nav-link" routerLink="/home/cart">Cart</a>
+               </li>
+               <li class="nav-item">
+                 <a class=" nav-link" routerLink="/home/orders">My Orders</a>
+               </li>
+               <li class="nav-item">
+                 <a class=" nav-link " (click)="logout()" style="cursor: pointer; float: right;">Log out</a>
+               </li>
+             </ul>
+           </div>
+           <div class="ml-auto" *ngSwitchCase="'admin'">
+             <ul class="navbar-nav mt-2 mt-lg-0 ">
+               <li class="nav-item ml-3">
+                 <a class=" nav-link" routerLink="/admin">Home</a>
+               </li>
+               <li class="nav-item ml-3">
+                 <a class=" nav-link" routerLink="/admin/order">Orders</a>
+               </li>
+               <li class="nav-item ml-3">
+                 <a class=" nav-link" (click)="logout()" style="cursor: pointer;">Log out</a>
+               </li>
+             </ul>
+           </div>
+        </div>
+     </nav>
+  </div>
+</div>
+
+<section class="slider_section " *ngIf="route.url === '/login' || route.url === '/register' " >
+ 
+ <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+   <div class="slider_bg_box">
+  <!-- <img src="https://img.freepik.com/free-photo/front-view-young-female-holding-writing-discount-percentage_140725-104956.jpg?size=626&ext=jpg&ga=GA1.1.1131240796.1683416230&semt=ais" alt="">
+  <img  src="../../../assets/img/th5.jpg" alt="#" /> -->
+  <img  src="../../../assets/img/bg4.avif" alt="#" />
+ </div>  
+    <div class="carousel-inner">
+       <div class="carousel-item active">
+          <div class="container ">
+             <div class="row">
+                <div class="col-md-7 col-lg-6 ">
+                   <div class="detail-box">
+                      <h1>
+                         Welcome!
+                      </h1>
+                      <p style="color:rgb(239, 247, 247); font-size: 20px; text-align: center;">
+                       To our Fashion Mart, the perfect place for all your online shopping needs! We have a great
+                       selection of products for men, women and kids. Enjoy your shopping experience with us!
+                     </p>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+      
+    </div>
+ </div>
+</section>

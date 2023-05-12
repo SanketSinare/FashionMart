@@ -1,0 +1,120 @@
+<app-navigation></app-navigation>
+<div class="container">
+        <div class="row">
+                <div class="col-12">
+                        <button class="mybtn btn btn-danger" (click)="show()" *ngIf="!showAdd">Add new product</button>
+                        <button class="mybtn btn btn-secondary" (click)="hide()" *ngIf="showAdd">Click to hide</button>
+                </div>
+        </div>
+        <form class="form-horizontal shadow p-3 mb-5 bg-white rounded " #f="ngForm" (ngSubmit)="f.form.valid && addProd(desc,quan,price,prodname,category,image)"
+                *ngIf="showAdd">
+                <h3>Add product details</h3><br>
+                <div class="row">
+                        <div class="col-6">
+                                <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Product Name" #prodname
+                                                ngModel name="prodname" required pattern="[a-zA-Z ]*">
+                                                <span *ngIf="f.controls['prodname'].invalid && f.controls['prodname'].touched" >
+                                                        <span *ngIf="f.controls['prodname'].errors.required" style="color:red;">
+                                                        Product Name is required.
+                                                        </span>  
+                                                        <span *ngIf="f.controls['prodname'].errors.pattern" style="color:red;">
+                                                            Only alphabets allowed in product name.
+                                                        </span>             
+                                                    </span>
+                                </div>
+                                <div class="form-group">
+                                        <textarea type="text" class="form-control" placeholder="description" name="desc"
+                                                #desc ngModel rows="5" required pattern="[a-zA-Z ]*"></textarea>
+                                                <span *ngIf="f.controls['desc'].invalid && f.controls['desc'].touched" >
+                                                        <span *ngIf="f.controls['desc'].errors.required" style="color:red;">
+                                                        Description is required.
+                                                        </span>  
+                                                        <span *ngIf="f.controls['desc'].errors.pattern" style="color:red;">
+                                                            Only alphabets allowed in Description.
+                                                        </span>             
+                                                    </span>
+                                </div>
+                                <div class="form-group">
+                                        <input type="number" class="form-control" placeholder="quantity" name="quan" #quan
+                                                ngModel required pattern="\d*">
+                                                <span *ngIf="f.controls['quan'].invalid && f.controls['quan'].touched" >
+                                                        <span *ngIf="f.controls['quan'].errors.required" style="color:red;">
+                                                                Quantity is required.
+                                                        </span>  
+                                                        <span *ngIf="f.controls['quan'].errors.pattern" style="color:red;">
+                                                            Only positive values are allowed in Quantity.
+                                                        </span>             
+                                                    </span>
+                                </div>
+                                <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="price" name="price" #price
+                                                ngModel required pattern="\d*">
+                                                <span *ngIf="f.controls['price'].invalid && f.controls['price'].touched" >
+                                                        <span *ngIf="f.controls['price'].errors.required" style="color:red;">
+                                                                Price is required.
+                                                        </span>  
+                                                        <span *ngIf="f.controls['price'].errors.pattern" style="color:red;">
+                                                            Only positive values are allowed in Price.
+                                                        </span>             
+                                                    </span>
+                                </div>
+                                <div class="form-group">
+                                       
+                                                <select  class="custom-select" (change)="onChangeCategory($event.target.value)" name="category" #category
+                                                ngModel >
+                                                <option selected disabled>category</option>
+                                                <option value="All">All</option> 
+                                                <option value="men">MEN</option>
+                                                <option value="women">WOMEN</option>
+                                                <option value="kids">KIDS</option>
+                                                <option value="Jwellary">Jwellary</option>
+                                                <option value="watch">Watch</option>
+                                                <option value="shoes">Shoes and Sandals</option>
+                                                <option value="hat">Perfume and Makeup Products</option>
+                                                </select>
+                                </div>
+                                <div class="form-group">
+                                        <input type="file" class="form-control" placeholder="Product Picture" #image
+                                                accept="image/*" name="image"
+                                                (change)="handleFileInput($event.target.files)">
+                                </div>
+                        </div>
+                        <div class="col-6">
+                                <h4 class="text-center">Image preview</h4>
+                                <img [src]="imageUrl" style="width:400px;height: 300px;">
+
+                        </div>
+                        
+                </div>
+                <div class="row">
+                        <div class="col-6">
+                                <input type="submit" class=" btn btn-primary" value="Add Product">
+                        </div>
+                </div>
+        </form>
+        <hr>
+        <div class="row">
+                <div class="col-3 align-left" *ngFor="let product of products">
+                        <div class="card shadow p-3 mb-5 bg-white rounded">
+                                <div class="card-body">
+                                        <h5 class="card-title">{{product.productname}}</h5>
+                                        <img src="data:image/png;base64,{{product.productimage}}" class="img-responsive"
+                                                height="150px" width="200px" alt="Image">
+                                        <p class="card-text"> {{product.description}}</p>
+                                        <p class="card-text"> Product Quantity: {{product.quantity}}</p>
+                                        <input type="hidden" value={{product.productid}} #prdid>
+                                        <div class="row">
+                                                <div class="col-6">
+                                                        <button class="btn btn-info" (click)="edit(prdid)">Edit</button>
+                                                </div>
+                                                <div class="col-6">
+                                                        <button class="btn btn-danger"
+                                                                (click)="delProd(prdid)">Remove</button>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>

@@ -1,0 +1,43 @@
+.navbar {
+  border-radius: 0;
+  position:sticky ;
+}
+.log {
+  text-align: right;
+}
+a{
+  color: rgb(38, 108, 108);
+  font-size: 20px;
+  font-weight: 500;
+}
+a:hover{
+  color: blue;
+}
+.navbar h1{
+  color: #3e363f;
+  font-size: 40px;
+  font-family: cursive sans-serif;
+  font-weight: 700;
+}
+.reg{
+  margin-left: 450px;
+}
+.navbar-brand img{
+  border-radius: 50%;
+  width: 60px;
+}
+.slider_bg_box{
+  height: 800px; 
+}
+.carousel-inner{
+  margin-left: 230px;
+}
+.detail-box h1{
+  color: rgb(252, 97, 123);
+  font-size: 60px;
+  font-weight: 1000;
+  text-align: center;
+}
+.detail-box{
+  width: 700px;
+}

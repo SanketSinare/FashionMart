@@ -1,0 +1,102 @@
+<app-navigation></app-navigation>
+
+<div class="container px-3 my-5 clearfix">
+  <!-- Shopping cart table -->
+  <div class="card" id="cart" >
+      <div class="card-header">
+          <h2>Shopping Cart</h2>
+      </div>
+      <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered m-0">
+              <thead>
+                <tr>
+                  <!-- Set columns width -->
+                  <th class="text-center py-3 px-4" style="min-width: 400px;">Product Name &amp; Details</th>
+                  <th class="text-right py-3 px-4" style="width: 100px;">Price</th>
+                  <th class="text-center py-3 px-4" style="width: 120px;">Quantity</th>
+                  <th class="text-right py-3 px-4" style="width: 100px;">Total</th>
+                  <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart">
+                    <i class="ino ion-md-trash"></i></a></th>
+                </tr>
+              </thead>
+              <tbody>
+      
+                <tr *ngFor="let cart of cartlist">
+                  <td class="p-4">
+                    <div class="media align-items-center">
+                      <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/shopping_cart.png" class="d-block ui-w-40 ui-bordered mr-4" alt="">
+                      <div class="media-body">
+                        <a href="#" class="d-block text-dark">  {{cart.productname}}  </a>
+                        <small>
+                          <span class="text-muted">Original Price:</span>
+                          <span class="text-dark" > {{cart.price * 10/9 | currency:'INR'}} </span> &nbsp;
+                          <span class="text-muted">Discount: </span> 10%
+                          <span class="text-muted">Ships from: </span> India
+                        </small>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="text-right font-weight-semibold align-middle p-4">{{cart.price | currency:'INR'}}</td>
+                  <td class="align-middle p-4">
+                    <input type="number" class="text-center" min="1" (click)="updateCart(prod,quant)" value="{{cart.quantity}}" #quant>
+
+                  </td>
+                  <td class="text-right font-weight-semibold align-middle p-4"> {{cart.quantity*cart.price | currency:'INR'}}
+                  </td>
+            <input type="hidden" value="{{cart.bufcartId}}" #prod>
+                  <td class="text-center align-middle px-0">
+                    <button class="shop-tooltip close float-none text-danger" (click)="deleteItem(prod)">X</button>
+
+                  </td>
+                </tr>
+      
+      
+              </tbody>
+            </table>
+          </div>
+          <!-- / Shopping cart table -->
+      
+          <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
+           
+            <div class="d-flex">
+              <div class="text-right mt-4">
+                <label class="text-muted font-weight-normal m-0">Total price</label>
+                <div class="text-large"><strong>Total Sum : {{totalSum | currency:'INR'}}</strong></div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="float-right">
+            <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button>
+            <div class="offset-1 col-2"><button type="button" class="btn btn-info align-right" (click)="displayPayment()" > Payment </button>
+            
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="card payment px-4" id="payment">
+  <p class="h8 py-3">Payment Details</p>
+  <div class="row gx-3">
+      <div class="col-12">
+          <div class="d-flex flex-column">
+              <p class="text mb-1">Person Name {{name}}</p>
+          </div>
+      </div>
+      <div class="col-12 ps-3">
+        Payment Mode: Cash On Delivery
+      </div>
+      <div class="col-12">
+              <span class="ps-3">Pay {{totalSum | currency:'INR'}}</span>
+      </div>
+  </div>
+
+  <div class="col-12 mt-3">
+    <div class="btn btn-primary mt-30">
+      <button type="button" class="btn align-right" (click)="placeOrder()" >Checkout </button>
+        <span class="fas fa-arrow-right"></span>
+    </div>
+</div>
+</div>
+</div>
